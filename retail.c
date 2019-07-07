@@ -41,7 +41,7 @@ int fileTail(struct file_followed * item) {
     long end_position = ftell(fp);
 
     if( end_position != item->last_position ) {
-        if(strcmp(item->filename, last_tailed)) { strcpy(last_tailed, item->filename); printf("\n** %s **:\n", item->filename); }
+        if(strcmp(item->filename, last_tailed)) { strcpy(last_tailed, item->filename); }
 
         int start_position = item->last_position == -1 || item->last_position > end_position ? (end_position-CHAR_BACK > 0 ? end_position-CHAR_BACK : 0) : item->last_position;
         fseek(fp, start_position, SEEK_SET);
